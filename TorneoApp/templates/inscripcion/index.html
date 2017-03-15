@@ -1,0 +1,27 @@
+{% extends 'layout/base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-6"></div>
+		<div class="col-md-6">
+			<div class="content">
+				<div class="form-box">
+					<form action="{% url 'inscripcion' %}" method="post" name="formulario" id="formulario">
+						{% csrf_token %}
+						{% for form in form %}
+							<div class="form-group">
+								<label>{{ form.label }}</label>
+								{{ form }}
+							</div>
+						{% endfor %}
+						<div class="form-group text-center">
+							<input type="submit" value="Inscribirme" class="btn"/>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
