@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 	'django.contrib.sessions',
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
+	'mail_templated',
 	'TorneoApp.apps.inscripcion',
 ]
 
@@ -76,20 +77,28 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'TorneoApp.wsgi.application'
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = "adriann.sanchez1@gmail.com"
+EMAIL_HOST_PASSWORD = 'xwkaorizkmsvfkzf'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-
-DATABASES = {
-	'default': {
-		'ENGINE': 'django.db.backends.postgresql_psycopg2',
-		'NAME': 'torneo_db',
-		'USER': 'root',
-		'PASSWORD': 'root',
-		'HOST': 'localhost',
-		'PORT': '',
+if 'DATABASE_URL' in os.environ:
+	DATABASES = {}
+	DATABASES['default'] = dj_database_url.config()
+else:
+	DATABASES = {
+		'default': {
+			'ENGINE': 'django.db.backends.postgresql_psycopg2',
+			'NAME': 'torneo_db',
+			'USER': 'root',
+			'PASSWORD': 'root',
+			'HOST': 'localhost',
+			'PORT': '',
+		}
 	}
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators

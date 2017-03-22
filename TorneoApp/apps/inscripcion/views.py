@@ -10,6 +10,7 @@ class InscripcionView(SuccessMessageMixin, CreateView):
 	template_name = var_dir_template+'index.html'
 	success_message = 'Gracias por inscribirte, en tu email encontrarás información sobre el torneo.'
 	form_class = InscripcionForm
+	success_url = '/'
 
 	def get_context_data(self, **kwargs):
 		context = super(InscripcionView, self).get_context_data(**kwargs)
