@@ -77,12 +77,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'TorneoApp.wsgi.application'
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = "adriann.sanchez1@gmail.com"
-EMAIL_HOST_PASSWORD = 'xwkaorizkmsvfkzf'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 if 'DATABASE_URL' in os.environ:
