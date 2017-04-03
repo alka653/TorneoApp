@@ -29,8 +29,8 @@ ALLOWED_HOSTS = ['torneoapp.herokuapp.com', '*']
 
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = "adriann.sanchez1@gmail.com"
-EMAIL_HOST_PASSWORD = 'xwkaorizkmsvfkzf'
+EMAIL_HOST_USER = "torneoajedrezupc@gmail.com"
+EMAIL_HOST_PASSWORD = 'jnwhvllglzwnujwd'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 

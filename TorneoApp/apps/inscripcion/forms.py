@@ -27,7 +27,7 @@ class InscripcionForm(forms.ModelForm):
 				'email': save_data.email
 			}
 		}
-		send_mail('email/send_email.html', data, settings.DEFAULT_FROM_EMAIL, [save_data.email])
+		send_mail('email/send_email.html', data, settings.DEFAULT_FROM_EMAIL, [save_data.email, 'adrian-sanchez@upc.edu.co', 'juan-garcia4@upc.edu.co', 'marisol-alvarez1@upc.edu.co'])
 		return save_data
 
 	def __init__(self, *args, **kwargs):
