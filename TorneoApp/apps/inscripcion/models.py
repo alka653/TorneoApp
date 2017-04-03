@@ -2,9 +2,9 @@ from datetime import datetime
 from django.db import models
 
 CHOICE_LEVEL = (
-	('NP', 'Nivel principiante'),
-	('NS', 'Nivel semiprofesional'),
-	('NPL', 'Nivel profesional')
+	('NV', 'Nivel novato'),
+	('IN', 'Nivel intermedio'),
+	('AV', 'Nivel avanzado')
 )
 
 class Inscritos(models.Model):

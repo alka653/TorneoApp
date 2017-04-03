@@ -25,7 +25,7 @@ SECRET_KEY = 'l^-d_x7&2e)v3zs()va^f8q67q49+bc2xciok8gpvz+9y&27ge'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['torneoapp.herokuapp.com']
+ALLOWED_HOSTS = ['torneoapp.herokuapp.com', '*']
 
 
 EMAIL_HOST = 'smtp.gmail.com'
