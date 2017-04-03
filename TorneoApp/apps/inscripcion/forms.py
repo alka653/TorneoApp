@@ -35,6 +35,6 @@ class InscripcionForm(forms.ModelForm):
 		for field in self.fields:
 			self.fields[field].widget.attrs.update({'class': 'form-control', 'required': True})
 			if field == 'fullname':
-				self.fields[field].widget.attrs.update({'class': 'form-control', 'pattern': '[A-Za-z]', 'required': True, 'title': 'Ingresa solo el nombre completo'})
+				self.fields[field].widget.attrs.update({'class': 'form-control', 'required': True, 'title': 'Ingresa solo el nombre completo'})
 			if field == 'telefono':
 				self.fields[field].widget.attrs.update({'class': 'only-number form-control', 'required': True})
