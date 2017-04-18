@@ -17,3 +17,6 @@ class Inscritos(models.Model):
 
 	def __str__(self):
 		return self.fullname
+
+	def __unicode__(self):
+		return self.fullname
