@@ -24,7 +24,7 @@ def export_data(request, level):
 	jugadores = jugadores if level == 'all' else jugadores.filter(nivel = level)
 	content = 'No;NombreCompleto;Titulo;ID;Elonac;FIDE;FNac;Fed;Sex;Tipo;Gr;NoClub;NombreClub;FIDE Id;Fuente;Pts;Des1;Des2;Des3;Des4;Des5;Clas;Apellido;Nombre;titulo\n'
 	for jugador in jugadores:
-		jugador_split = jugador.fullname.title().decode('utf-8').split(' ')
+		jugador_split = jugador.fullname.decode('utf-8').title().split(' ')
 		content += str(jugador.pk)+';'+jugador.fullname+';;;0;0;;AUT;;;;0;;0;;0;0;0;0,00;;;'+str(jugador.pk)+';'+((jugador_split[0]+' '+jugador_split[1]) if len(jugador_split) == 4 else jugador_split[0])+';'+((jugador_split[2]+' '+jugador_split[3]) if len(jugador_split) == 4 else (jugador_split[1]+' '+jugador_split[2]))+';\n'
 	response = HttpResponse(content, content_type='text/plain')
 	response['Content-Disposition'] = 'attachment; filename=inscritos.TXT'
