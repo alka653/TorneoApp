@@ -22,10 +22,10 @@ class InscripcionView(SuccessMessageMixin, CreateView):
 def export_data(request, level):
 	jugadores = Inscritos.objects.all().order_by('fullname')
 	jugadores = jugadores if level == 'all' else jugadores.filter(nivel = level)
-	content = 'No;NombreCompleto;Nombre;Apellido;\n'
+	content = 'No;NombreCompleto;Titulo;ID;Elonac;FIDE;FNac;Fed;Sex;Tipo;Gr;NoClub;NombreClub;FIDEId;Fuente;Pts;Des1;Des2;Des3;Des4;Des5;Clas;Apellido;Nombre;titulo\n'
 	for jugador in jugadores:
 		jugador_split = jugador.fullname.split(' ')
-		content += str(jugador.pk)+';'+jugador.fullname.title()+';'+((jugador_split[0]+' '+jugador_split[1]).title() if len(jugador_split) == 4 else jugador_split[0].title())+';'+((jugador_split[2]+' '+jugador_split[3]).title() if len(jugador_split) == 4 else (jugador_split[1]+' '+jugador_split[2]).title())+';\n'
+		content += str(jugador.pk)+';'+jugador.fullname.title()+';;;0;0;;AUT;;;;0;;0;;0;0;0,00;;;'+str(jugador.pk)+';'+((jugador_split[0]+' '+jugador_split[1]).title() if len(jugador_split) == 4 else jugador_split[0].title())+';'+((jugador_split[2]+' '+jugador_split[3]).title() if len(jugador_split) == 4 else (jugador_split[1]+' '+jugador_split[2]).title())+';\n'
 	response = HttpResponse(content, content_type='text/plain')
 	response['Content-Disposition'] = 'attachment; filename=inscritos.TXT'
 	return response
