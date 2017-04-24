@@ -20,7 +20,7 @@ class InscripcionView(SuccessMessageMixin, CreateView):
 		return context
 
 def export_data(request, level):
-	jugadores = Inscritos.objects.all().order_by('fullname')
+	jugadores = Inscritos.objects.all().order_by('id')
 	jugadores = jugadores if level == 'all' else jugadores.filter(nivel = level)
 	content = 'No;NombreCompleto;Titulo;ID;Elonac;FIDE;FNac;Fed;Sex;Tipo;Gr;NoClub;NombreClub;FIDE Id;Fuente;Pts;Des1;Des2;Des3;Des4;Des5;Clas;Apellido;Nombre;titulo\n'
 	for jugador in jugadores:
