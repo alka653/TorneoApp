@@ -27,5 +27,5 @@ def export_data(request, level):
 		jugador_split = jugador.fullname.split(' ')
 		content += str(jugador.pk)+';'+jugador.fullname.title()+';'+((jugador_split[0]+' '+jugador_split[1]).title() if len(jugador_split) == 4 else jugador_split[0].title())+';'+((jugador_split[2]+' '+jugador_split[3]).title() if len(jugador_split) == 4 else (jugador_split[1]+' '+jugador_split[2]).title())+';\n'
 	response = HttpResponse(content, content_type='text/plain')
-	response['Content-Disposition'] = 'attachment; filename=inscritos.txt'
+	response['Content-Disposition'] = 'attachment; filename=inscritos.TXT'
 	return response
