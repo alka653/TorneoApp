@@ -22,7 +22,7 @@ class InscripcionView(SuccessMessageMixin, CreateView):
 def export_data(request, level):
 	jugadores = Inscritos.objects.all().order_by('fullname')
 	jugadores = jugadores if level == 'all' else jugadores.filter(nivel = level)
-	content = 'No;NombreCompleto;Nombre;Apellido\n'
+	content = 'No;NombreCompleto;Nombre;Apellido;\n'
 	for jugador in jugadores:
 		jugador_split = jugador.fullname.split(' ')
 		content += str(jugador.pk)+';'+jugador.fullname.title()+';'+((jugador_split[0]+' '+jugador_split[1]).title() if len(jugador_split) == 4 else jugador_split[0].title())+';'+((jugador_split[2]+' '+jugador_split[3]).title() if len(jugador_split) == 4 else (jugador_split[1]+' '+jugador_split[2]).title())+';\n'
